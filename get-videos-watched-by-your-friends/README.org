@@ -1,0 +1,8 @@
+#+title: 1311. Get Watched Videos by Your Friends
+
+Problem url: https://leetcode.com/problems/get-watched-videos-by-your-friends/description/
+
+There are $n$ people, each people has a unique =id= between $0$ and $n-1$.
+Given the arrays =watchedVideos= and =friends=, where =watchedVideos[i]= and
+=friends[i]= contain the list of watched videos and the list of friends for
+the person with =id = i=.

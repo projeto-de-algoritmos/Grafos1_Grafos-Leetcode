@@ -1,0 +1,73 @@
+#+title: 690C. Brain Network
+
+Os problemas resolvidos nessa seção são:
+
+- C1 (easy) - https://codeforces.com/contest/690/problem/C1
+- C1 (medium) - https://codeforces.com/contest/690/problem/C2
+
+  *Nota*: O problema C3 (hard) não foi resolvido pois cai fora do escopo de grafos, se tratando muito mais de programação dinâmica.
+
+* C1
+
+** Descrição do Problema
+
+One particularly well-known fact about zombies is that they move and think terribly slowly. While we still don't know why their movements are so sluggish, the problem of laggy thinking has been recently resolved. It turns out that the reason is not (as previously suspected) any kind of brain defect – it's the opposite! Independent researchers confirmed that the nervous system of a zombie is highly complicated – it consists of n brains (much like a cow has several stomachs). They are interconnected by brain connectors, which are veins capable of transmitting thoughts between brains. There are two important properties such a brain network should have to function properly:
+
+1. It should be possible to exchange thoughts between any two pairs of brains (perhaps indirectly, through other brains).
+2. There should be no redundant brain connectors, that is, removing any brain connector would make property 1 false.
+
+If both properties are satisfied, we say that the nervous system is valid. Unfortunately (?), if the system is not valid, the zombie stops thinking and becomes (even more) dead. Your task is to analyze a given nervous system of a zombie and find out whether it is valid.
+
+** Input
+
+The first line of the input contains two space-separated integers $n$ and $m$ ($1 \leq n, m \le 1000$) denoting the number of brains (which are conveniently numbered from 1 to $n$)
+and the number of brain connectors in the nervous system, respectively.
+In the next $m$ lines, descriptions of the brains connectors follow.
+Every connector is given as a pair of brains $a$ and $b$.
+
+** Output
+
+The output consists of one line, containing either =yes= or =no= depending on whether the nervous system is valid.
+
+** Resolução
+
+O problema pode ser redefinido com o seguinte conjunto de regras:
+
+1. O grafo é conexo;
+2. O grafo tem quantidade de arestas igual a $n -1$;
+
+Para checar se o grafo é conexo, uma DFS basta.
+
+* C2
+
+** Descrição do problema
+
+Further research on zombie thought process yielded interesting results.
+As we know from the previous problem, the nervous system of a zombie consists of $n$ brains and $m$ connectors joining the brains together.
+It was observed that the intellectual abilities of a zombie depend mainly on the topology of its nervous system.
+More precisely, we define the distance between two brains $u$ and $v$ ($1 \leq u, v \leq n$) as the minimum number of brain connectors using when transmitting a thought between these two brains.
+Researchers conjecture that the brain latency is the crucial parameter which determines how smart a given zombie is.
+Help them test this conjecture by writing a program to compute brain latencies of nervous systems.
+
+In this problem you may assume that any nervous system given in the input is valid, i.e. is satisfies conditions (1) and (2) from the easy version.
+
+** Input
+
+The first line of the input contains two space-separated integers $n$ and $m$ ($1 \leq n, m \le 100000$) denoting the number of brains (which are conveniently numbered from 1 to $n$)
+and the number of brain connectors in the nervous system, respectively.
+In the next $m$ lines, descriptions of the brains connectors follow.
+Every connector is given as a pair of brains $a$ and $b$.
+
+** Output
+
+Print one number -- the brain latency.
+
+** Resolução
+
+Para resolver o problema, precisamos achar o diâmetro do grafo, ou seja, a maior distance entre quaiquer dois nós.
+
+Uma possível solução seria usar um algoritmo de menor caminho para computar a distância entre todos os nós e depois selecionar a maior entre elas, mas esses algoritmos são quadráticos e o input com $n = 100000$ é muito grande.
+
+Como o grafo possui a qualidade especial de ser uma árvore, podemos usar uma estratégia diferente.
+
+Escolhendo um vértice arbitrário $v$, o diâmetro do grafo é a distância entre $u$ e $w$, onde $u$ é o nó mais distante de $v$ e $w$ é o nó mais distânte de $u$.

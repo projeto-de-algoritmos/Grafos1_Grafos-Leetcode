@@ -1,30 +1,20 @@
-import collections
+from collections import defaultdict
 
 
-class Solution(object):
-    def findItinerary(self, tickets):
-        graph = collections.defaultdict(list)
-        origin = "JFK"
-        result = [origin]
+class Solution:
+    def findItinerary(self, graph):
+        result = []
+        paths = defaultdict(list)
         
-        def route_helper(origin, graph, result, count_tickets):
-            if count_tickets == 0:
-                return True
+        def dfs(dep):
+            array = paths[dep]
+            while array:
+                dfs(array.pop())
+            result.append(dep)
 
-            for i, (destiny, valid)  in enumerate(graph[origin]):
-                if valid:
-                    graph[origin][i][1] = False
-                    result.append(destiny)
-                    if route_helper(destiny, graph, result, count_tickets - 1):
-                        return result
-                    result.pop()
-                    graph[origin][i][1] = True
-            return False
-
-        for k in graph.keys():
-            graph[k].sort()
-        for ticket in tickets:
-            graph[ticket[0]].append([ticket[1], True])
+        graph.sort(key=lambda x: x[1], reverse=True)
+        for s, t in graph:
+            paths[s].append(t)
+        dfs('JFK')
         
-        route_helper(origin, graph, result, len(tickets))
-        return result
+        return result[::-1]

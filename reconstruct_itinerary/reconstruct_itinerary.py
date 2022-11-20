@@ -3,31 +3,28 @@ import collections
 
 class Solution(object):
     def findItinerary(self, tickets):
-        """
-        :type tickets: List[List[str]]
-        :rtype: List[str]
-        """
-        def route_helper(origin, ticket_cnt, graph, ans):
-            if ticket_cnt == 0:
+        graph = collections.defaultdict(list)
+        origin = "JFK"
+        result = [origin]
+        
+        def route_helper(origin, graph, result, count_tickets):
+            if count_tickets == 0:
                 return True
 
-            for i, (dest, valid)  in enumerate(graph[origin]):
+            for i, (destiny, valid)  in enumerate(graph[origin]):
                 if valid:
                     graph[origin][i][1] = False
-                    ans.append(dest)
-                    if route_helper(dest, ticket_cnt - 1, graph, ans):
-                        return ans
-                    ans.pop()
+                    result.append(destiny)
+                    if route_helper(destiny, graph, result, count_tickets - 1):
+                        return result
+                    result.pop()
                     graph[origin][i][1] = True
             return False
 
-        graph = collections.defaultdict(list)
-        for ticket in tickets:
-            graph[ticket[0]].append([ticket[1], True])
         for k in graph.keys():
             graph[k].sort()
-
-        origin = "JFK"
-        ans = [origin]
-        route_helper(origin, len(tickets), graph, ans)
-        return ans
+        for ticket in tickets:
+            graph[ticket[0]].append([ticket[1], True])
+        
+        route_helper(origin, graph, result, len(tickets))
+        return result

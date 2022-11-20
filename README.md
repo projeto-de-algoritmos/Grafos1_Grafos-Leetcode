@@ -7,7 +7,7 @@
 | Matrícula | Aluno |
 | -- | -- |
 | 20/0019015 | Guilherme Puida Moreira |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 19/0118288  |  Vitor Eduardo Kühl Rodrigues |
 
 ## Sobre 
 

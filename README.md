@@ -27,7 +27,9 @@ python main.py # substitua main.py para o nome do arquivo em questão
 ```
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+
+Os problemas recebem entradas no `stdin` e mostram o resultado no `stdout`.
+Existem casos de teste nas páginas de cada problema em seus respectivos juízes online.
 
 ## Outros 
 Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.

@@ -14,9 +14,20 @@
 Resolução de problemas de grafos de juízes online.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
 
-## Instalação 
+![Alt text](/images/brain-network-easy.png?raw=true "Optional Title")
+![Alt text](/images/brain-network-medium.png?raw=true "Optional Title")
+![Alt text](/images/find-if-path-exists.png?raw=true "Optional Title")
+![Alt text](/images/get-watched-videos-by-your-friends.png?raw=true "Optional Title")
+![Alt text](/images/network-topology.png?raw=true "Optional Title")
+![Alt text](/images/ctulhu.png?raw=true "Optional Title")
+
+O vídeo da apresentação está em `images/grafos-c.mp4`.
+
+*Os resultados das submissões restantes estão no vídeo gravado.*
+
+## Instalação
+
 **Linguagem**: Python
 
 Para rodar o projeto, submeta as resoluções nos juízes online
@@ -30,9 +41,6 @@ python main.py # substitua main.py para o nome do arquivo em questão
 
 Os problemas recebem entradas no `stdin` e mostram o resultado no `stdout`.
 Existem casos de teste nas páginas de cada problema em seus respectivos juízes online.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
 
 
 
